@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escola Mira Franqueadora</title>
+
+  <!-- Tailwind CSS (framework) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonte base (pode alterar depois) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+  <!-- CSS CUSTOMIZADO (SEPARADO) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            primary: '#fec430',
+            dark: '#0f1c3e'
+          }
+        }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+
+  if (!header) return;
+
+  const toggleHeaderOnScroll = () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
+  // Estado inicial
+  toggleHeaderOnScroll();
+
+  // Listener de scroll
+  window.addEventListener('scroll', toggleHeaderOnScroll, { passive: true });
+
+const opcoesOrigem = [
+    'Instagram',
+    'Google',
+    'Indicação',
+    'Eventos',
+    'Outros'
+  ];
+
+  const container = document.getElementById('origem-container');
+
+  const titulo = document.createElement('p');
+  titulo.textContent =
+    'Qual foi o meio que você ficou sabendo da Escola Mira Franqueadora?';
+  titulo.className = 'font-semibold mb-3';
+
+  container.appendChild(titulo);
+
+  const lista = document.createElement('div');
+  lista.className = 'flex flex-col gap-2';
+
+  opcoesOrigem.forEach(opcao => {
+    const label = document.createElement('label');
+    label.className = 'flex items-center gap-2 cursor-pointer';
+
+    const input = document.createElement('input');
+    input.type = 'radio';            //  AQUI
+    input.name = 'origem';            //  MESMO NAME
+    input.value = opcao;
+    input.required = true;            // opcional
+
+    label.appendChild(input);
+    label.append(opcao);
+
+    lista.appendChild(label);
+  });
+
+  container.appendChild(lista);
+});
+  </script>
+
+</head>
+
+
+<body class="bg-dark text-white font-sans">
+
+  <!-- HERO -->
+
+<section class="hero relative min-h-screen">
+  <img src="assets/hero.png" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <div class="relative z-10 min-h-screen flex items-end">
+    <div class="site-container pb-20">
+      <h2 id="hero-title" class="lg:text-5xl font-bold leading-tight mb-8">
+        Seja dono da primeira<br>
+        Escola de empreendedorismo<br>
+        para Jovens de 7 a 17 anos!
+      </h2>
+
+      <div class="bloco flex flex-wrap items-center justify-center gap-20">
+        <a href="#formulario" class="hero-button">Seja pioneiro no mercado!</a>
+        <span class="font-semibold text-lg">Metodologia<br>Internacional!</span>
+        <span class="font-semibold text-lg">Criada no<br>Vale do Silício!</span>
+        <span class="font-semibold text-lg">Sem<br>Concorrência!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-dark py-20">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto px-6 items-start">
+
+    <!-- ESQUERDA -->
+    <div id="esquerda" class="flex flex-col gap-10 max-w-xl">
+      <h2 class="text-4xl font-bold">
+        Invista em uma franquia livre de concorrência!
+      </h2>
+
+      <h3 class="text-4xl">
+        Seja um investidor, sem se preocupar com professsor!
+      </h3>
+
+      <div class="flex items-center gap-12">
+        <img src="assets/img5.jpg" class="w-100 rounded-3xl object-cover" />
+      </div>
+    </div>
+
+    <!-- DIREITA -->
+    <div id="formulario" class="bg-white text-dark rounded-2xl p-8 shadow-xl">
+
+          <h2 class="text-3xl font-bold mb-6">
+            Quer ser um franqueado(a) da Escola Mira?
+            Preencha o formulário
+            e entraremos em contato.
+          </h2>
+
+          <form id="leadForm" class="space-y-4">
+  
+  <!-- NOME -->
+  <div>
+    <label class="block font-semibold mb-1">
+      Nome:*
+    </label>
+    <input
+      type="text"
+      name="nome"
+      required
+      class="w-full border px-4 py-3 rounded-lg"
+    >
+  </div>
+
+  <!-- TELEFONE -->
+  <div>
+    <label class="block font-semibold mb-1">
+      Telefone/Whatsapp:*
+    </label>
+    <input
+      type="number"
+      name="telefone"
+      required
+      class="w-full border px-4 py-3 rounded-lg"
+    >
+  </div>
+
+  <!-- CIDADE DA FRANQUIA -->
+  <div>
+    <label class="block font-semibold mb-1">
+      Em qual cidade pretende montar a sua franquia?*
+    </label>
+    <input
+      type="text"
+      name="cidade_franquia"
+      required
+      class="w-full border px-4 py-3 rounded-lg"
+    >
+  </div>
+
+  <!-- VALOR DISPONÍVEL -->
+  <div>
+    <label class="block font-semibold mb-1">
+      Qual o valor disponível para investimento?*
+    </label>
+    <select
+      name="investimento"
+      required
+      class="w-full border px-4 py-3 rounded-lg"
+    >
+      <option value="" disabled selected>Selecione</option>
+      <option>Até R$150 mil</option>
+      <option>R$150 mil a R$250 mil</option>
+      <option>Acima de R$250 mil</option>
+    </select>
+  </div>
+
+  <!-- ORIGEM -->
+  <div>
+    <p class="font-semibold mb-2">
+      Qual foi o meio pelo qual você ficou sabendo da franquia?*
+    </p>
+
+    <div class="space-y-2">
+      <label class="flex items-center gap-2">
+        <input type="radio" name="origem" value="Instagram">
+        Instagram
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="origem" value="Facebook">
+        Facebook
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="origem" value="Google">
+        Google
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="origem" value="YouTube">
+        YouTube
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="origem" value="Indicação de Franqueado">
+        Indicação de Franqueado
+      </label>
+    </div>
+  </div>
+
+  <!-- VERIFICAÇÃO HUMANA -->
+  <div>
+    <label class="block font-semibold mb-1">
+      4 + 7 = ?*
+    </label>
+    <input
+      type="number"
+      name="verificacao"
+      required
+      class="w-full border px-4 py-3 rounded-lg"
+    >
+  </div>
+
+  <!-- CHECKBOX COMUNICAÇÕES -->
+  <div class="flex items-start gap-2">
+    <input
+      type="checkbox"
+      name="comunicacoes"
+      required
+      class="mt-1"
+    >
+    <label class="text-sm leading-snug">
+      Eu concordo em receber comunicações.
+    </label>
+  </div>
+
+  <!-- CHECKBOX LGPD -->
+  <div class="flex items-start gap-2">
+    <input
+      type="checkbox"
+      name="lgpd"
+      required
+      class="mt-1"
+    >
+    <label class="text-sm leading-snug">
+      Eu li e manifesto ciência das hipóteses de tratamento de dados pessoais
+      estampadas no Aviso de Privacidade, e forneço meu consentimento livre
+      para as atividades de tratamento necessárias.
+    </label>
+  </div>
+
+  <!-- STATUS -->
+  <p id="formStatus" class="text-sm mt-2"></p>
+
+  <!-- BOTÃO -->
+  <button
+    type="submit"
+    class="w-full bg-primary text-dark font-semibold py-3 rounded-lg"
+  >
+    Quero ser franqueado
+  </button>
+
+  </form>
+  </div>
+  </div>
+</section>
+
+<section class="bg-white overflow-hidden">
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <!-- DUPLICAÇÃO DAS IMAGENS (necessário para loop infinito) -->
+        <img src="assets/img1.jpg" alt="">
+        <img src="assets/img2.jpg" alt="">
+        <img src="assets/img3.jpg" alt="">
+        <img src="assets/img4.jpg" alt="">
+        <img src="assets/img5.jpg" alt="">
+
+
+        <img src="assets/img6.jpg" alt="">
+        <img src="assets/img7.jpg" alt="">
+        <img src="assets/img8.jpg" alt="">
+        <img src="assets/img9.jpg" alt="">
+        <img src="assets/img10.jpg" alt="">
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <section class="why-section">
+  <div class="why-container">
+    <h2 class="why-title">POR QUE INVESTIR NA ESCOLA MIRA?</h2>
+
+    <div class="why-grid">
+
+      <!-- ITEM 1 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+
+        <p>
+          Investimento total<br> de
+          <strong>R$ 250.000,00</strong>
+        </p>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185ZM9.75 9h.008v.008H9.75V9Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 4.5h.008v.008h-.008V13.5Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+
+
+        <p>
+          <strong>20 a 35%</strong> de<br>
+          lucratividade média
+        </p>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+      </svg>
+
+        <p>
+          <strong>2 a 4</strong><br>
+          funcionários
+        </p>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+        </svg>
+
+        <p>
+          Retorno médio de<br>
+          <strong>12 a 18 meses</strong>
+        </p>
+      </div>
+
+      <!-- ITEM 5 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+      </svg>
+
+        <p>
+          Royalties fixos<br>
+          de <strong>7%</strong>
+        </p>
+      </div>
+
+      <!-- ITEM 6 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+        </svg>
+
+        <p>
+          Área mínima<br>
+          de <strong>80 m²</strong>
+        </p>
+      </div>
+
+      <!-- ITEM 7 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+        </svg>
+
+        <p>
+          Receita recorrente<br>
+          e <strong>escalabilidade</strong>
+        </p>
+      </div>
+
+      <!-- ITEM 8 -->
+      <div class="why-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+        </svg>
+
+        <p>
+          Fature por ano<br>
+          <strong>R$1.5 milhão</strong>
+        </p>
+      </div>
+
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="#formulario" class="inline-block bg-dark text-primary font-bold text-lg px-20 py-7 rounded-full">QUERO SER UM FRANQUEADO</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="mapa" class="bg-dark py-20">
+  <div class="site-container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+    <div class="map-text">
+      <h2 class="text font-bold mb-6">
+        Fature até R$1.5 milhão por ano
+        sendo pioneiro no ramo!
+      </h2>
+
+      <h3 class="text-3xl">
+        A Escola Mira é a escolha ideal para quem busca uma franquia
+        de alto retorno e baixo investimento.
+      </h3>
+    </div>
+    <div class="map-image">
+    <img src="assets/mapa.png" class="w-full rounded-2xl" />
+      </div>
+  </div>
+</section>
+
+ <section class="recognition-section"> 
+  <div class="site-container">
+    <div class="recognition-grid">
+
+      <!-- CARD 1 -->
+      <a
+        href="https://www.cnnbrasil.com.br/educacao/8-dicas-para-ensinar-educacao-financeira-para-criancas-e-jovens/"
+        target="_blank"
+        rel="noopener"
+        class="recognition-card-1 recognition-link"
+      >
+        <div class="recognition-header-1">CNN</div>
+        <div class="recognition-text-1">
+          8 dicas para ensinar educação financeira para jovens:
+          91% dos brasileiros não tiveram
+          educação financeira na infância.
+        </div>
+        <div class="recognition-image">
+          <img src="assets/cnn.png" alt="CNN">
+        </div>
+      </a>
+
+      <!-- CARD 2 -->
+      <a
+        href="terra.com.br/noticias/educacao/carreira/mini-ceos-adolescentes-buscam-formacao-empreendedora-antes-de-escolher-sua-profissao,d1df4f97fdcaaa95bd41db82eb1bbd1bitmtekf2.html"
+        target="_blank"
+        rel="noopener"
+        class="recognition-card-2 recognition-link"
+      >
+        <div class="recognition-header-2">Terra</div>
+        <div class="recognition-text-2">
+          Mini CEOs:
+          adolescentes buscam formação empreendedora
+          antes de escolher sua profissão.<br><br>
+        </div>
+        <div class="recognition-image">
+          <img src="assets/terra.jpg" alt="Terra">
+        </div>
+      </a>
+
+      <!-- CARD 3 -->
+      <a
+        href="https://diariodocomercio.com.br/negocios/escola-mira-franquias-minas-gerais/"
+        target="_blank"
+        rel="noopener"
+        class="recognition-card-3 recognition-link"
+      >
+        <div class="recognition-header-3">Negócios</div>
+        <div class="recognition-text-3">
+          Com valuation de 10 milhões,
+          Escola Mira recebe aporte:
+          Franquia requer investimento de R$ 240 mil
+          e pode faturar R$ 2 milhões por ano.
+        </div>
+        <div class="recognition-image">
+          <img src="assets/negocios.jpeg" alt="Estadão Negócios">
+        </div>
+      </a>
+
+    </div>
+
+    <!-- BOTÃO FINAL -->
+    <div class="text-center mt-12">
+      <a
+        href="#formulario"
+        class="inline-block bg-primary text-dark font-bold text-lg px-20 py-7 rounded-full"
+      >
+        QUERO SER UM FRANQUEADO
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="bg-white py-24">
+
+  <div class="why-container">
+    <h2 class="why-title">O LIVRO DA NOSSA ESCOLA</h2>
+    </div>
+
+  <div class="site-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- TEXTO (ESQUERDA) -->
+    <div class="space-y-6">
+      <h2 class="text-4xl text-dark font-bold leading-tight">
+        Tem coisa mais importante
+        que o vestibular?
+      </h2>
+
+      <p class="text-lg text-dark leading-relaxed">
+        Enquanto a sociedade exige criatividade, coragem, relacionamento e resolução de problemas, nossas crianças continuam sendo preparadas para passar em provas, decorar fórmulas e seguir regras. Mas e se tudo isso estivesse deixando-as despreparadas para o que realmente importa?
+      </p>
+
+      <p class="text-lg text-dark leading-relaxed">
+        Neste livro direto, realista e provocador, você vai entender por que o sistema educacional atual está falhando com uma geração inteira e como uma escola-modelo tem sido o caminho para formar jovens mais preparados, resilientes e protagonistas. Com base na Psicologia comportamental, em vivências no Vale do Silício, na metodologia de ensino de Harvard e nos valores do esporte e do golfe, esta obra apresenta uma nova proposta de educação: prática, humana e alinhada com os desafios do mundo real.
+      </p>
+
+      <p class="text-lg text-dark leading-relaxed">
+        Aqui, o foco é desenvolver habilidades que realmente importam: generosidade, comunicação, posicionamento, relacionamentos seletivos, capacidade de errar e aprender, resolver problemas, e acima de tudo, fazer acontecer. O futuro exige atitude. E começa agora.
+      </p>
+
+      <div class="mt-12">
+      <a href="#formulario" class="inline-block bg-primary text-dark font-bold text-lg px-20 py-7 rounded-full">QUERO SABER MAIS</a>
+    </div>
+    </div>
+
+    <!-- LIVRO (DIREITA) -->
+     
+    <div class="flex justify-center lg:justify-end">
+      <img
+        src="assets/livro.jpg"
+        alt="Livro Escola Mira"
+        class="w-80 lg:w-96 rounded-2xl shadow-2xl"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+<section id="historia" class="historia-section">
+  <div class="site-container">
+
+    <h2>Nossa História</h2>
+
+    <div class="flex flex-col gap-24 mt-20">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h3>VALE DO SILÍCIO</h3>
+          <p>
+            <br>Empresas nascem em garagens - Toda grande história começa com um simples passo.
+            Isso aconteceu com as grandes empresas que hoje dominam o mundo, as grandes
+            da tecnologia: Google, Apple e o Facebook.
+            <br><br>
+            Assim como elas, nasceu a Escola Mira! Com uma idéia verdadeiramente disruptiva:
+            Não ser só mais uma escola, mas sim uma fábrica de empreendedores!
+
+          </p>
+        </div>
+
+        <img src="assets/silicio.png" alt="">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="lg:order-2">
+          <h3>HARVARD</h3>
+          <p>
+            <br>O método de Harvard foi a chave para dar aos jovens a capacidade de resolver problemas reais.
+            A base da nossa metodologia se apoia em conceitos da psicologia comportamental, princípios
+            do mundo do golfe e práticas de aprendizagem ativa, conectadas com o que há de mais avançado
+            em desenvolvimento humano.
+
+          </p>
+        </div>
+
+        <img class="lg:order-1" src="assets/harvard.jpg" alt="">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h3>Esporte e educação</h3>
+          <p>
+            <br>No esporte, assim como na vida, não vence quem nunca perde.
+            Seja dentro de uma quadra, campo de golfe ou no comando de uma empre bilionária,
+            o que separa os grandes vencedores dos que ficam pelo caminho não é apenas o talento ou
+            a inteligência; é a mentalidade.
+            Como seria se, desde cedo, os jovens aprendessem essa mentalidade
+            para buscar a excelência?
+          </p>
+        </div>
+
+        <img src="assets/GOLF.jpg" alt="">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="lg:order-2">
+          <h3>Antes de validar o MVP</h3>
+          <p>
+            <br>Batemos à porta de muitas escolas e, na maioria das vezes, ouvimos “não”.
+            Foram tentativas, conversas e portas que não se abriram.
+            Já as empresas nos receberam, acreditaram e disseram “sim”.
+            <br><br>
+            Foi nesse contraste que veio a clareza: o aprendizado não pode ficar preso às paredes da sala de aula.
+            A verdadeira sala de aula está no mundo real, onde os problemas existem, as decisões importam e o futuro acontece.
+          </p>
+        </div>
+
+        <img class="lg:order-1" src="assets/val_mvp.png" alt="">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h3>Expansão</h3>
+          <p>
+            <br>A expansão da Escola Mira é o próximo passo de um método que funciona.
+            Com uma educação prática, conectada ao mundo real, a Mira cresce para levar empreendedorismo a mais 
+            crianças e adolescentes.
+
+            Expandir a Mira é mais do que abrir novas unidades: é escalar impacto, formar educadores e preparar
+            a próxima geração para o futuro.
+            <br><br>
+            A cada nova cidade, a Mira leva o mesmo compromisso: educação viva, aplicada e alinhada com o futuro.
+
+          </p>
+        </div>
+        <img src="assets/expansao.jpeg" alt="">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="lg:order-2">
+          <h3>Escrevemos nossa história</h3>
+          <p>
+            <br>O livro “Tem coisa mais importante que o vestibular?” nasce da trajetória da Escola Mira e da coragem de questionar o modelo tradicional de educação.
+            Ele reúne vivências, decisões e aprendizados de quem acredita que formar para a vida é tão importante quanto preparar para provas.
+            <br><br>
+            Mais do que um registro, o livro é um convite à reflexão.
+            Um chamado para repensar o futuro da educação e o papel da escola na formação de crianças e adolescentes prontos para o mundo real.
+          </p>
+        </div>
+
+        <img class="lg:order-1" src="assets/livro2.PNG" alt="">
+      </div>
+
+    </div>
+     <div class="text-center mt-12">
+      <a href="#formulario" class="inline-block bg-primary text-dark font-bold text-lg px-20 py-7 rounded-full">QUERO FALAR COM UM ESPECIALISTA</a>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos-section">
+  <div class="depoimentos-container">
+
+    <h2 class="depoimentos-title">
+      O que dizem nossos franqueados
+    </h2>
+
+    <div class="depoimentos-video-wrapper">
+      <video
+        src="assets/video/video_germano_1.mp4"
+        controls
+        playsinline
+        preload="metadata">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <!-- CTA FINAL -->
+  <section id="CTA" class="bg-primary text-dark py-20 text-center">
+    <div class="text-center mt-12">
+      <a href="#formulario" class="inline-block bg-dark text-primary font-bold text-lg px-20 py-7 rounded-full">QUERO SER UM FRANQUEADO</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-sm">
+    © 2026 — Todos os direitos reservados
+  </footer>
+
+<script>
+  const form = document.getElementById('leadForm');
+  const status = document.getElementById('formStatus');
+
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxv7QwAkD_WE1p2JBO1vLojxWIohspCgGLt_ofbukrZk5xJx6e39Ea-5eGkIUY_kr8A/exec';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = 'Enviando...';
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+
+      status.textContent = 'Dados enviados com sucesso!';
+      status.className = 'text-green-600 text-sm mt-2';
+      form.reset();
+
+    } catch (error) {
+      status.textContent = 'Erro ao enviar. Tente novamente.';
+      status.className = 'text-red-600 text-sm mt-2';
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
