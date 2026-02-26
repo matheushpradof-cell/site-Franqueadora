@@ -46,6 +46,7 @@ CONTAINER PADRÃO DO SITE
 
 
 /* HERO */
+
 .hero h2 {
   text-align: center;
    font-size: clamp(28px, 6vw, 62px);
@@ -87,6 +88,20 @@ CONTAINER PADRÃO DO SITE
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  .hero-span {
+    display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}}
+
+
 
 
 #esquerda h2{
