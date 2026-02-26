@@ -14,8 +14,9 @@ body {
 }
 
 /* =====================================================
+CONTAINER PADRÃO DO SITE
+===================================================== */
 
-/* CONTAINER PADRÃO DO SITE */
 .site-container {
   max-width: 1280px;
   margin-left: auto;
@@ -24,15 +25,30 @@ body {
   padding-right: 24px;
 }
 
+/* ↓↓↓ AJUSTES MOBILE */
+@media (max-width: 1024px) {
+  .site-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
 
 /* =====================================================
    HERO
    ===================================================== */
 
+
 /* HERO */
 .hero h2 {
   text-align: center;
-  font-size: 62px;
+   font-size: clamp(28px, 6vw, 62px);
 }
 .hero span {
   text-align: center;
@@ -64,11 +80,12 @@ body {
   align-items: center;
 }
 
-.hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 60px; /* ← espaço entre o botão e o grupo de textos */
-  margin-top: 32px;
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
 }
 
 
@@ -77,13 +94,16 @@ body {
   line-height: 1.2;
 }
 
-
 /* =====================================================
    FORMULÁRIO
    ===================================================== */
 
+/* SECTION FORM + ESQUERDA */
+@media (max-width: 1024px) {
+
 #formulario {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   left: 0;
   color: #0f1c3e;
 }
@@ -133,17 +153,19 @@ form button:hover {
 }
 
 
-
+@media (max-width: 768px) {
 .franquia-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 48px;
   align-items: stretch; /* mantém o formulário como referência de altura */
 }
 
 /* COLUNA ESQUERDA */
 .franquia-left {
-  max-width: 420px;
+  max-width: 100%;
   align-self: center; /* 🔑 centraliza verticalmente em relação ao formulário */
+}
 }
 
 /* CARD INTERNO */
@@ -182,11 +204,12 @@ form button:hover {
   padding: 40px;
   width: 100%;
   max-width: 520px;
-}
+}}
 
 /* ================================
    CARROSSEL HORIZONTAL CONTÍNUO
 ================================ */
+
 
 .carousel {
   width: 100%;
@@ -209,8 +232,10 @@ form button:hover {
 
 /* imagens */
 .carousel-track img {
-  width: 380px;
-  height: 380px;
+  width: 80vw;
+  height: 80vw;
+  max-width: 380px;
+  max-height: 380px;
   object-fit: cover;
   border-radius: 24px; /* mesmo padrão visual do site */
   flex-shrink: 0;
@@ -257,8 +282,8 @@ form button:hover {
 }
 
 .video-expand {
-  width: 740px;
-  max-width: none;
+  width: 100%;
+  max-width: 740px;
 }
 
 
@@ -359,7 +384,8 @@ section .border:hover {
 }
 
 .map-image {
-  width: 600px;      /* aumente aqui */
+  width: 100%;   
+  max-width: 600px;   /* aumente aqui */
   height: auto;
 }
 
@@ -433,6 +459,16 @@ section .border:hover {
   font-family: GERAMOND;
   font-weight: 1000;
 }
+
+.recognition-date-1,
+.recognition-date-2,
+.recognition-date-3 {
+  font-size: 12px;
+  color: #797979;
+  padding: 1.5rem;
+  line-height: 1.4;
+}
+
 
 
 /* CARD */
@@ -593,7 +629,7 @@ section .border:hover {
 
 
 /* =====================================================
-   DEPOIMENTOS
+   DEPOIMENTO
    ===================================================== */
 
 /* SECTION */
@@ -676,4 +712,24 @@ footer {
   header nav {
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+
+  h2 {
+    font-size: 32px !important;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
+
+  .map-text {
+    font-size: 28px;
+  }
+
+  #CTA h2 {
+    font-size: 32px;
+  }
+
 }
