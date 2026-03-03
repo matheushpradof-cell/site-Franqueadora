@@ -51,6 +51,8 @@ CONTAINER PADRÃO DO SITE
   text-align: center;
    font-size: clamp(28px, 6vw, 62px);
 }
+
+
 .hero span {
   text-align: center;
 }
@@ -94,14 +96,26 @@ CONTAINER PADRÃO DO SITE
     padding-top: 100px;
     padding-bottom: 60px;
   }
-  .hero-span {
-    display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
-}}
 
+}
 
+@media (max-width: 768px) {
+
+  .hero span {
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero span {
+    display: block;
+    margin: 4px 0;
+    line-height: 1.15;
+  }
+
+}
 
 
 #esquerda h2{
@@ -225,57 +239,36 @@ form button:hover {
    CARROSSEL HORIZONTAL CONTÍNUO
 ================================ */
 
-
 .carousel {
   width: 100%;
-  padding-top: 80px;    /* margem superior */
-  padding-bottom: 80px; /* margem inferior */
+  padding: 80px 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
 }
 
-.carousel {
-  width: 100%;
-  overflow-x: auto;     /* ← ativa scroll horizontal */
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* ← suaviza no iPhone */
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-track {
   display: flex;
   gap: 24px;
-  scroll-snap-type: x mandatory;
-  animation: scroll-horizontal 30s linear infinite;
-  
 }
 
-@media (max-width: 768px) {
-  .carousel-track {
-    animation: none;
-  }
-}
-
-/* imagens */
 .carousel-track img {
-  width: 85vw;
-  height: 85vw;
+  width: 80vw;
+  height: 80vw;
   max-width: 380px;
   max-height: 380px;
   object-fit: cover;
-  border-radius: 24px; /* mesmo padrão visual do site */
+  border-radius: 24px;
   flex-shrink: 0;
-  scroll-snap-align: center;
 }
-
-/* animação */
-@keyframes scroll-horizontal {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 
 /* ==============================
    SEÇÃO INDÚSTRIA / INSTITUCIONAL
@@ -473,21 +466,24 @@ section .border:hover {
 
 .recognition-card-1,
 .recognition-card-2,
-.recognition-card-3 {
+.recognition-card-3,
+.recognition-card-4 {
   min-height: 320px;
   flex-grow: 1;
 }
 
 .recognition-header-1,
 .recognition-header-2,
-.recognition-header-3 {
+.recognition-header-3,
+.recognition-header-4 {
   font-family: GERAMOND;
   font-weight: 1000;
 }
 
 .recognition-date-1,
 .recognition-date-2,
-.recognition-date-3 {
+.recognition-date-3,
+.recognition-date-4 {
   font-size: 12px;
   color: #797979;
   padding: 1.5rem;
@@ -578,6 +574,36 @@ section .border:hover {
 
 /* TEXTO */
 .recognition-text-3 {
+  font-size: 22px;
+  padding: 1.5rem;
+  line-height: 1.4;
+  color: #0f1c3e;
+  min-height: 110px;
+  text-align: left;
+}
+
+/* CARD */
+.recognition-card-4 {
+  background-color: var(--branco);
+  color: #0f1c3e;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.recognition-header-4 {
+  background-color: #0f1c3e;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 40px;
+}
+
+/* TEXTO */
+.recognition-text-4 {
   font-size: 22px;
   padding: 1.5rem;
   line-height: 1.4;
