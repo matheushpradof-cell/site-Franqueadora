@@ -468,7 +468,7 @@ section .border:hover {
 .recognition-card-2,
 .recognition-card-3,
 .recognition-card-4 {
-  min-height: 320px;
+  min-height: 200px;
   flex-grow: 1;
 }
 
@@ -509,7 +509,7 @@ section .border:hover {
   color: #fff;
   text-align: center;
   padding: 1.5rem;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /* TEXTO */
@@ -544,7 +544,7 @@ section .border:hover {
 
 /* TEXTO */
 .recognition-text-2 {
-  font-size: 22px;
+  font-size: 18px;
   padding: 1.5rem;
   line-height: 1.4;
   color: #0f1c3e;
@@ -574,7 +574,7 @@ section .border:hover {
 
 /* TEXTO */
 .recognition-text-3 {
-  font-size: 22px;
+  font-size: 14px;
   padding: 1.5rem;
   line-height: 1.4;
   color: #0f1c3e;
@@ -604,7 +604,7 @@ section .border:hover {
 
 /* TEXTO */
 .recognition-text-4 {
-  font-size: 22px;
+  font-size: 18px;
   padding: 1.5rem;
   line-height: 1.4;
   color: #0f1c3e;
@@ -614,7 +614,7 @@ section .border:hover {
 
 .recognition-image{
   width: 100%;
-  height: 320px;
+  height: 200px;
   flex-shrink: 0;
 }
 
